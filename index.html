@@ -9,55 +9,72 @@
 
 <style>
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:Arial,sans-serif;background:#f3faf6;color:#183b2e;line-height:1.6}
 header{background:#087f5b;color:white;padding:16px;text-align:center}
-header h1{margin:0;font-size:28px}
-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+header h1{margin:0;font-size:30px}
+nav{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:12px}
 nav a,nav button{background:white;color:#087f5b;border:0;border-radius:7px;padding:9px 12px;text-decoration:none;font-weight:bold}
-.hero{background:#087f5b;color:white;text-align:center;padding:35px 18px}
-.hero h2{font-size:32px;margin:0 0 10px}
-main{max-width:1000px;margin:auto;padding:16px}
-section{margin:25px 0}
+button{cursor:pointer}
+.hero{background:linear-gradient(135deg,#087f5b,#064d39);color:white;text-align:center;padding:40px 18px}
+.hero h2{font-size:32px;margin:0 0 10px;color:white}
+.hero p{max-width:650px;margin:0 auto 20px}
+.hero a{display:inline-block;background:white;color:#087f5b;padding:10px 15px;border-radius:8px;text-decoration:none;font-weight:bold}
+main{max-width:1050px;margin:auto;padding:16px}
+section{margin:28px 0;scroll-margin-top:12px}
 h2{color:#087f5b}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
-.card{background:white;padding:18px;border-radius:14px;border:1px solid #d9e9df;box-shadow:0 3px 10px #0000000a}
-.card h3{color:#087f5b;margin-top:0}
+.card{background:white;padding:18px;border-radius:14px;border:1px solid #d9e9df;box-shadow:0 3px 10px #0000000a;overflow-wrap:anywhere}
+.card h3{color:#087f5b;margin-top:5px}
 .icon{font-size:32px}
-button{cursor:pointer}
-.read,.action{background:#087f5b;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:bold;margin-top:8px}
+.read,.action{background:#087f5b;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:bold;margin:8px 5px 0 0}
+.read:hover,.action:hover{background:#064d39}
 .details{border-top:1px solid #ddd;margin-top:12px;padding-top:10px}
-.details[hidden]{display:none}
-.tip{background:#e1f5e9;padding:15px;border-radius:10px}
+.details[hidden],#result[hidden]{display:none}
+.image-section{text-align:center;background:white;border:1px solid #d9e9df;border-radius:14px;padding:20px}
+.site-image{display:block;width:100%;max-width:650px;max-height:600px;height:auto;object-fit:contain;margin:18px auto;border-radius:14px;border:2px solid #d9e9df}
+.image-caption{font-size:14px;color:#426657}
+.tip{background:#e1f5e9;padding:16px;border-radius:10px}
 .question{background:white;padding:15px;border-radius:12px;margin:12px 0;border:1px solid #d9e9df}
-.question label{display:block;padding:5px}
+.question label{display:block;padding:6px 0;cursor:pointer}
+input[type=radio],input[type=checkbox]{accent-color:#087f5b}
 #result{background:#e1f5e9;padding:15px;border-radius:10px;margin-top:15px}
 footer{background:#064d39;color:white;padding:25px;text-align:center;margin-top:30px}
-input[type=radio],input[type=checkbox]{accent-color:#087f5b}
+footer p{margin:7px 0}
 a{color:#087f5b}
-@media(max-width:480px){.hero h2{font-size:26px}main{padding:12px}.card{padding:15px}}
+@media(max-width:480px){.hero h2{font-size:26px}main{padding:12px}.card{padding:15px}nav{gap:6px}nav a,nav button{padding:8px;font-size:13px}}
 </style>
 </head>
 
 <body>
 <header>
-  <h1>💚 AfyaWise</h1>
-  <p data-en="Your Health, Your Future" data-sw="Afya Yako, Mustakabali Wako">Your Health, Your Future</p>
-  <nav>
-    <a href="#home" data-en="Home" data-sw="Nyumbani">Home</a>
-    <a href="#topics" data-en="Health Topics" data-sw="Mada za Afya">Health Topics</a>
-    <a href="#fitness" data-en="Fitness" data-sw="Mazoezi">Fitness</a>
-    <a href="#quiz" data-en="Quiz" data-sw="Jaribio">Quiz</a>
-    <button id="langBtn" type="button">Kiswahili</button>
-  </nav>
+<h1>💚 AfyaWise</h1>
+<p data-en="Your Health, Your Future" data-sw="Afya Yako, Mustakabali Wako">Your Health, Your Future</p>
+<nav>
+<a href="#home" data-en="Home" data-sw="Nyumbani">Home</a>
+<a href="#topics" data-en="Health Topics" data-sw="Mada za Afya">Health Topics</a>
+<a href="#fitness" data-en="Fitness" data-sw="Mazoezi">Fitness</a>
+<a href="#habits" data-en="Daily Habits" data-sw="Tabia za Kila Siku">Daily Habits</a>
+<a href="#quiz" data-en="Quiz" data-sw="Jaribio">Quiz</a>
+<button id="langBtn" type="button">Kiswahili</button>
+</nav>
 </header>
 
 <div class="hero" id="home">
-  <h2 data-en="Learn. Prevent. Live Well." data-sw="Jifunze. Zuia. Ishi Vizuri.">Learn. Prevent. Live Well.</h2>
-  <p data-en="Simple healthcare education for students, families and communities." data-sw="Elimu rahisi ya afya kwa wanafunzi, familia na jamii.">Simple healthcare education for students, families and communities.</p>
-  <a href="#topics" style="background:white;color:#087f5b;padding:10px 15px;border-radius:8px;text-decoration:none;font-weight:bold" data-en="Explore Health Topics" data-sw="Angalia Mada za Afya">Explore Health Topics</a>
+<h2 data-en="Learn. Prevent. Live Well." data-sw="Jifunze. Zuia. Ishi Vizuri.">Learn. Prevent. Live Well.</h2>
+<p data-en="Simple healthcare education for students, families and communities." data-sw="Elimu rahisi ya afya kwa wanafunzi, familia na jamii.">Simple healthcare education for students, families and communities.</p>
+<a href="#topics" data-en="Explore Health Topics" data-sw="Angalia Mada za Afya">Explore Health Topics</a>
 </div>
 
 <main>
+
+<!-- IMAGE: KEEP THE JPG IN THE SAME FOLDER AS THIS HTML FILE -->
+<section class="image-section">
+<h2 data-en="Welcome to AfyaWise" data-sw="Karibu AfyaWise">Welcome to AfyaWise</h2>
+<img src="IMG_0e32d65b-1f82-4801-86dd-cbed1f2bd9e6.jpg" alt="AfyaWise health education" class="site-image">
+<p class="image-caption" data-en="Your Health, Your Future. Learn today for a healthier tomorrow." data-sw="Afya Yako, Mustakabali Wako. Jifunze leo kwa maisha bora ya kesho.">Your Health, Your Future. Learn today for a healthier tomorrow.</p>
+</section>
+
 <section id="topics">
 <h2 data-en="📚 Health Education Topics" data-sw="📚 Mada za Elimu ya Afya">📚 Health Education Topics</h2>
 <p data-en="Choose a topic and tap Read More to learn how to protect your health." data-sw="Chagua mada na ubonyeze Soma Zaidi ili kujifunza jinsi ya kulinda afya yako.">Choose a topic and tap Read More to learn how to protect your health.</p>
@@ -76,7 +93,7 @@ a{color:#087f5b}
 <li data-en="Remove standing water around your home where safe." data-sw="Ondoa maji yaliyotuama karibu na nyumba yako inapokuwa salama.">Remove standing water around your home where safe.</li>
 <li data-en="Seek medical assessment if you develop fever." data-sw="Tafuta huduma ya afya ukipata homa.">Seek medical assessment if you develop fever.</li>
 </ul>
-<p data-en="Do not self-diagnose. Testing helps identify the cause of fever." data-sw="Usijitambulishe kuwa na ugonjwa mwenyewe. Vipimo husaidia kutambua chanzo cha homa.">Do not self-diagnose. Testing helps identify the cause of fever.</p>
+<p data-en="Testing helps identify the cause of fever. Follow advice from a qualified health professional." data-sw="Vipimo husaidia kutambua chanzo cha homa. Fuata ushauri wa mtaalamu wa afya aliyehitimu.">Testing helps identify the cause of fever. Follow advice from a qualified health professional.</p>
 </div>
 </article>
 
@@ -105,9 +122,10 @@ a{color:#087f5b}
 <h4 data-en="Protect yourself" data-sw="Jilinde">Protect yourself</h4>
 <ul>
 <li data-en="Drink water from a safe source." data-sw="Kunywa maji kutoka chanzo salama.">Drink water from a safe source.</li>
+<li data-en="Treat water if its safety is uncertain." data-sw="Safisha maji ikiwa usalama wake hauna uhakika.">Treat water if its safety is uncertain.</li>
 <li data-en="Cook food thoroughly." data-sw="Pika chakula vizuri.">Cook food thoroughly.</li>
 <li data-en="Keep cooked food covered." data-sw="Funika chakula kilichopikwa.">Keep cooked food covered.</li>
-<li data-en="Wash fruits and vegetables using safe water." data-sw="Osha matunda na mboga kwa maji salama.">Wash fruits and vegetables using safe water.</li>
+<li data-en="Wash fruits and vegetables with safe water." data-sw="Osha matunda na mboga kwa maji salama.">Wash fruits and vegetables with safe water.</li>
 </ul>
 </div>
 </article>
@@ -138,7 +156,7 @@ a{color:#087f5b}
 <ul>
 <li data-en="Eat vegetables and fruits regularly." data-sw="Kula mboga na matunda mara kwa mara.">Eat vegetables and fruits regularly.</li>
 <li data-en="Include beans, eggs, fish or other protein foods." data-sw="Jumuisha maharagwe, mayai, samaki au vyakula vingine vya protini.">Include beans, eggs, fish or other protein foods.</li>
-<li data-en="Choose staple foods such as ugali, rice or potatoes." data-sw="Chagua vyakula vya msingi kama ugali, wali au viazi.">Choose staple foods such as ugali, rice or potatoes.</li>
+<li data-en="Choose foods such as ugali, rice or potatoes." data-sw="Chagua vyakula kama ugali, wali au viazi.">Choose foods such as ugali, rice or potatoes.</li>
 <li data-en="Drink safe water and limit sugary drinks." data-sw="Kunywa maji salama na punguza vinywaji vyenye sukari nyingi.">Drink safe water and limit sugary drinks.</li>
 </ul>
 </div>
@@ -147,55 +165,83 @@ a{color:#087f5b}
 <article class="card">
 <div class="icon">🧠</div>
 <h3 data-en="Mental Wellness" data-sw="Afya ya Akili">Mental Wellness</h3>
-<p data-en="Your mental wellbeing is an important part of your health." data-sw="Ustawi wa akili ni sehemu muhimu ya afya yako.">Your mental wellbeing is an important part of your health.</p>
+<p data-en="Mental wellbeing is an important part of your health." data-sw="Ustawi wa akili ni sehemu muhimu ya afya yako.">Mental wellbeing is an important part of your health.</p>
 <button class="read" data-target="mental" data-en="Read More +" data-sw="Soma Zaidi +">Read More +</button>
 <div class="details" id="mental" hidden>
 <h4 data-en="Care for your mind" data-sw="Tunza akili yako">Care for your mind</h4>
 <ul>
 <li data-en="Keep a regular sleep routine." data-sw="Dumisha ratiba ya kawaida ya kulala.">Keep a regular sleep routine.</li>
 <li data-en="Take breaks when studying." data-sw="Pumzika unapokuwa unasoma.">Take breaks when studying.</li>
-<li data-en="Talk to a trusted person when stressed." data-sw="Zungumza na mtu unayemwamini unapokuwa na msongo.">Talk to a trusted person when stressed.</li>
-<li data-en="Seek professional support when you need it." data-sw="Tafuta msaada wa kitaalamu unapouhitaji.">Seek professional support when you need it.</li>
+<li data-en="Talk to someone you trust when stressed." data-sw="Zungumza na mtu unayemwamini unapokuwa na msongo.">Talk to someone you trust when stressed.</li>
+<li data-en="Seek professional support when needed." data-sw="Tafuta msaada wa kitaalamu unapouhitaji.">Seek professional support when needed.</li>
 </ul>
 </div>
 </article>
+
+<article class="card">
+<div class="icon">🩺</div>
+<h3 data-en="Preventive Health Checks" data-sw="Uchunguzi wa Kinga ya Afya">Preventive Health Checks</h3>
+<p data-en="Routine health services can help identify some health problems early." data-sw="Huduma za uchunguzi wa kawaida zinaweza kusaidia kutambua baadhi ya matatizo ya afya mapema.">Routine health services can help identify some health problems early.</p>
+<button class="read" data-target="checkups" data-en="Read More +" data-sw="Soma Zaidi +">Read More +</button>
+<div class="details" id="checkups" hidden>
+<ul>
+<li data-en="Attend recommended health check-ups." data-sw="Hudhuria uchunguzi wa afya unaopendekezwa.">Attend recommended health check-ups.</li>
+<li data-en="Ask a health professional about appropriate vaccinations." data-sw="Uliza mtaalamu wa afya kuhusu chanjo zinazofaa.">Ask a health professional about appropriate vaccinations.</li>
+<li data-en="Seek advice when symptoms concern you." data-sw="Tafuta ushauri dalili zinapokutia wasiwasi.">Seek advice when symptoms concern you.</li>
+<li data-en="Follow prescribed treatment and advice." data-sw="Fuata matibabu na ushauri uliopewa.">Follow prescribed treatment and advice.</li>
+</ul>
+</div>
+</article>
+
 </div>
 </section>
 
 <section id="fitness">
 <h2 data-en="🏃 Fitness and Sports Health" data-sw="🏃 Mazoezi na Afya ya Michezo">🏃 Fitness and Sports Health</h2>
 <div class="cards">
-<div class="card">
+<article class="card">
 <h3 data-en="Beginner Exercises" data-sw="Mazoezi kwa Wanaoanza">Beginner Exercises</h3>
 <ul>
 <li data-en="Start with a comfortable walk." data-sw="Anza kwa kutembea kwa kiwango kinachokufaa.">Start with a comfortable walk.</li>
 <li data-en="Try gentle bodyweight exercises." data-sw="Jaribu mazoezi mepesi kwa kutumia uzito wa mwili.">Try gentle bodyweight exercises.</li>
 <li data-en="Increase activity gradually." data-sw="Ongeza mazoezi taratibu.">Increase activity gradually.</li>
+<li data-en="Choose activities that you enjoy." data-sw="Chagua shughuli unazofurahia.">Choose activities that you enjoy.</li>
 </ul>
-</div>
-<div class="card">
+</article>
+
+<article class="card">
 <h3 data-en="Prevent Sports Injuries" data-sw="Zuia Majeraha ya Michezo">Prevent Sports Injuries</h3>
 <ul>
 <li data-en="Warm up before activity." data-sw="Jipashie moto kabla ya mazoezi.">Warm up before activity.</li>
 <li data-en="Use suitable shoes and equipment." data-sw="Tumia viatu na vifaa vinavyofaa.">Use suitable shoes and equipment.</li>
-<li data-en="Rest and stop if you feel sharp pain or dizziness." data-sw="Pumzika na simama ukihisi maumivu makali au kizunguzungu.">Rest and stop if you feel sharp pain or dizziness.</li>
+<li data-en="Learn the correct exercise technique." data-sw="Jifunze mbinu sahihi za kufanya mazoezi.">Learn the correct exercise technique.</li>
+<li data-en="Stop if you feel sharp pain or dizziness." data-sw="Simama ukihisi maumivu makali au kizunguzungu.">Stop if you feel sharp pain or dizziness.</li>
 </ul>
-</div>
-<div class="card">
+</article>
+
+<article class="card">
 <h3 data-en="Hydration and Rest" data-sw="Maji na Mapumziko">Hydration and Rest</h3>
 <p data-en="Drink safe water, eat balanced meals and allow your body enough time to recover." data-sw="Kunywa maji salama, kula milo yenye uwiano na upe mwili muda wa kutosha kupona.">Drink safe water, eat balanced meals and allow your body enough time to recover.</p>
-</div>
+</article>
+
+<article class="card">
+<h3 data-en="Benefits of Physical Activity" data-sw="Faida za Mazoezi">Benefits of Physical Activity</h3>
+<p data-en="Regular physical activity supports heart health, stronger muscles, mobility and mental wellbeing." data-sw="Mazoezi ya mara kwa mara husaidia afya ya moyo, kuimarisha misuli, uwezo wa kutembea na ustawi wa akili.">Regular physical activity supports heart health, stronger muscles, mobility and mental wellbeing.</p>
+</article>
 </div>
 </section>
 
 <section id="habits">
 <h2 data-en="✅ Daily Healthy Habits" data-sw="✅ Tabia Bora za Kila Siku">✅ Daily Healthy Habits</h2>
+<p data-en="Tick each healthy habit you complete today." data-sw="Weka alama kwenye kila tabia bora unayotimiza leo.">Tick each healthy habit you complete today.</p>
 <div class="card">
 <label><input type="checkbox" class="habit"> <span data-en="I was physically active today." data-sw="Nilifanya mazoezi leo.">I was physically active today.</span></label><br>
 <label><input type="checkbox" class="habit"> <span data-en="I drank safe water." data-sw="Nilikunywa maji salama.">I drank safe water.</span></label><br>
 <label><input type="checkbox" class="habit"> <span data-en="I ate a balanced meal." data-sw="Nilikula mlo wenye uwiano.">I ate a balanced meal.</span></label><br>
-<label><input type="checkbox" class="habit"> <span data-en="I made time to rest." data-sw="Nilitenga muda wa kupumzika.">I made time to rest.</span></label>
-<p id="habitCount">0 habits completed</p>
+<label><input type="checkbox" class="habit"> <span data-en="I made time to rest." data-sw="Nilitenga muda wa kupumzika.">I made time to rest.</span></label><br>
+<label><input type="checkbox" class="habit"> <span data-en="I practised good hygiene." data-sw="Nilizingatia usafi bora.">I practised good hygiene.</span></label>
+<p id="habitCount" aria-live="polite">0 of 5 habits completed</p>
+<button type="button" class="action" id="resetHabits" data-en="Reset Habits" data-sw="Anza Upya">Reset Habits</button>
 </div>
 </section>
 
@@ -204,77 +250,96 @@ a{color:#087f5b}
 <p data-en="Choose one answer for each question, then check your score." data-sw="Chagua jibu moja kwa kila swali kisha angalia alama zako.">Choose one answer for each question, then check your score.</p>
 
 <form id="quizForm">
+
 <div class="question">
 <strong data-en="1. What helps prevent mosquito bites at night?" data-sw="1. Ni nini husaidia kuzuia kuumwa na mbu usiku?">1. What helps prevent mosquito bites at night?</strong>
-<label><input type="radio" name="q1" value="a"> <span data-en="Using an insecticide-treated mosquito net" data-sw="Kutumia chandarua chenye dawa ya kuua mbu">Using an insecticide-treated mosquito net</span></label>
+<label><input type="radio" name="q1" value="a" required> <span data-en="Using an insecticide-treated mosquito net" data-sw="Kutumia chandarua chenye dawa ya kuua mbu">Using an insecticide-treated mosquito net</span></label>
 <label><input type="radio" name="q1" value="b"> <span data-en="Leaving standing water around the home" data-sw="Kuacha maji yaliyotuama karibu na nyumba">Leaving standing water around the home</span></label>
 <label><input type="radio" name="q1" value="c"> <span data-en="Ignoring mosquito bites" data-sw="Kupuuza kuumwa na mbu">Ignoring mosquito bites</span></label>
 </div>
 
 <div class="question">
 <strong data-en="2. When should you wash your hands?" data-sw="2. Unapaswa kunawa mikono lini?">2. When should you wash your hands?</strong>
-<label><input type="radio" name="q2" value="a"> <span data-en="Only in the morning" data-sw="Asubuhi pekee">Only in the morning</span></label>
+<label><input type="radio" name="q2" value="a" required> <span data-en="Only in the morning" data-sw="Asubuhi pekee">Only in the morning</span></label>
 <label><input type="radio" name="q2" value="b"> <span data-en="Before eating and after using the toilet" data-sw="Kabla ya kula na baada ya kutumia choo">Before eating and after using the toilet</span></label>
 <label><input type="radio" name="q2" value="c"> <span data-en="Only when other people do" data-sw="Wakati wengine wanafanya hivyo pekee">Only when other people do</span></label>
 </div>
 
 <div class="question">
 <strong data-en="3. How should a beginner start exercising?" data-sw="3. Mtu anayeanza anapaswa kuanzaje mazoezi?">3. How should a beginner start exercising?</strong>
-<label><input type="radio" name="q3" value="a"> <span data-en="Start gradually and warm up" data-sw="Anza taratibu na jipashie moto">Start gradually and warm up</span></label>
+<label><input type="radio" name="q3" value="a" required> <span data-en="Start gradually and warm up" data-sw="Anza taratibu na jipashie moto">Start gradually and warm up</span></label>
 <label><input type="radio" name="q3" value="b"> <span data-en="Exercise as hard as possible immediately" data-sw="Fanya mazoezi makali sana mara moja">Exercise as hard as possible immediately</span></label>
 <label><input type="radio" name="q3" value="c"> <span data-en="Ignore pain and dizziness" data-sw="Puuza maumivu na kizunguzungu">Ignore pain and dizziness</span></label>
 </div>
 
 <div class="question">
 <strong data-en="4. Which is part of a balanced diet?" data-sw="4. Ni nini sehemu ya lishe yenye uwiano?">4. Which is part of a balanced diet?</strong>
-<label><input type="radio" name="q4" value="a"> <span data-en="Eating only one food every day" data-sw="Kula chakula cha aina moja kila siku">Eating only one food every day</span></label>
+<label><input type="radio" name="q4" value="a" required> <span data-en="Eating only one food every day" data-sw="Kula chakula cha aina moja kila siku">Eating only one food every day</span></label>
 <label><input type="radio" name="q4" value="b"> <span data-en="Eating varied foods including vegetables and protein" data-sw="Kula vyakula mbalimbali pamoja na mboga na protini">Eating varied foods including vegetables and protein</span></label>
 <label><input type="radio" name="q4" value="c"> <span data-en="Replacing water with sugary drinks" data-sw="Kubadilisha maji kwa vinywaji vyenye sukari">Replacing water with sugary drinks</span></label>
 </div>
 
 <div class="question">
 <strong data-en="5. What should you do if breathing becomes severely difficult?" data-sw="5. Unapaswa kufanya nini ukipata shida kali ya kupumua?">5. What should you do if breathing becomes severely difficult?</strong>
-<label><input type="radio" name="q5" value="a"> <span data-en="Wait several days" data-sw="Subiri siku kadhaa">Wait several days</span></label>
+<label><input type="radio" name="q5" value="a" required> <span data-en="Wait several days" data-sw="Subiri siku kadhaa">Wait several days</span></label>
 <label><input type="radio" name="q5" value="b"> <span data-en="Do strenuous exercise" data-sw="Fanya mazoezi makali">Do strenuous exercise</span></label>
 <label><input type="radio" name="q5" value="c"> <span data-en="Seek urgent medical help" data-sw="Tafuta huduma ya afya ya haraka">Seek urgent medical help</span></label>
+</div>
+
+<div class="question">
+<strong data-en="6. Which practice helps make drinking water safer?" data-sw="6. Ni kitendo gani kinachosaidia kufanya maji ya kunywa kuwa salama?">6. Which practice helps make drinking water safer?</strong>
+<label><input type="radio" name="q6" value="a" required> <span data-en="Leaving water uncovered" data-sw="Kuacha maji bila kufunikwa">Leaving water uncovered</span></label>
+<label><input type="radio" name="q6" value="b"> <span data-en="Using an appropriate water treatment method when needed" data-sw="Kutumia njia inayofaa ya kusafisha maji inapohitajika">Using an appropriate water treatment method when needed</span></label>
+<label><input type="radio" name="q6" value="c"> <span data-en="Assuming all water is safe" data-sw="Kudhani maji yote ni salama">Assuming all water is safe</span></label>
+</div>
+
+<div class="question">
+<strong data-en="7. What is a healthy response to ongoing stress?" data-sw="7. Ni hatua gani nzuri unapokabiliwa na msongo unaoendelea?">7. What is a healthy response to ongoing stress?</strong>
+<label><input type="radio" name="q7" value="a" required> <span data-en="Never talk about it" data-sw="Kutokuzungumza kuhusu hali hiyo">Never talk about it</span></label>
+<label><input type="radio" name="q7" value="b"> <span data-en="Ignore all your needs" data-sw="Kupuuza mahitaji yako yote">Ignore all your needs</span></label>
+<label><input type="radio" name="q7" value="c"> <span data-en="Talk to a trusted person or health professional" data-sw="Zungumza na mtu unayemwamini au mtaalamu wa afya">Talk to a trusted person or health professional</span></label>
 </div>
 
 <button class="action" type="submit" data-en="Check My Score" data-sw="Angalia Alama Zangu">Check My Score</button>
 <button class="action" type="reset" data-en="Try Again" data-sw="Jaribu Tena">Try Again</button>
 </form>
+
 <div id="result" hidden aria-live="polite"></div>
 </section>
 
-<section>
+<section id="resources">
 <h2 data-en="🌍 Trusted Health Resources" data-sw="🌍 Vyanzo vya Afya Vinavyoaminika">🌍 Trusted Health Resources</h2>
 <div class="tip">
-<p><strong>World Health Organization:</strong> <a href="https://www.who.int/health-topics" target="_blank" rel="noopener">Health Topics</a></p>
-<p><strong>Kenya Ministry of Health:</strong> <a href="https://www.health.go.ke/" target="_blank" rel="noopener">Official Website</a></p>
+<p><strong>World Health Organization:</strong> <a href="https://www.who.int/health-topics" target="_blank" rel="noopener noreferrer">Health Topics</a></p>
+<p><strong>Kenya Ministry of Health:</strong> <a href="https://www.health.go.ke/" target="_blank" rel="noopener noreferrer">Official Website</a></p>
 <p data-en="AfyaWise is for education only. It does not replace professional medical advice." data-sw="AfyaWise ni kwa elimu pekee. Haichukui nafasi ya ushauri wa kitaalamu wa afya.">AfyaWise is for education only. It does not replace professional medical advice.</p>
 </div>
 </section>
+
 </main>
 
 <footer>
 <strong>💚 AfyaWise - Your Health, Your Future</strong>
 <p>MMUST | Health Promotion and Sports Science</p>
 <p data-en="Learn today for a healthier tomorrow." data-sw="Jifunze leo kwa maisha bora ya kesho.">Learn today for a healthier tomorrow.</p>
+<p data-en="Educational website created to promote healthy living." data-sw="Tovuti ya elimu iliyoundwa kuhamasisha maisha yenye afya.">Educational website created to promote healthy living.</p>
 </footer>
 
 <script>
 let language = "en";
 
-document.getElementById("langBtn").addEventListener("click", function () {
-  language = language === "en" ? "sw" : "en";
+const langBtn = document.getElementById("langBtn");
+
+function translatePage() {
   document.documentElement.lang = language;
 
-  document.querySelectorAll("[data-en][data-sw]").forEach(function (element) {
+  document.querySelectorAll("[data-en][data-sw]").forEach(function(element) {
     element.textContent = element.getAttribute("data-" + language);
   });
 
-  this.textContent = language === "en" ? "Kiswahili" : "English";
+  langBtn.textContent = language === "en" ? "Kiswahili" : "English";
 
-  document.querySelectorAll(".read").forEach(function (button) {
+  document.querySelectorAll(".read").forEach(function(button) {
     const details = document.getElementById(button.dataset.target);
     const open = !details.hidden;
     button.textContent = language === "en"
@@ -283,12 +348,18 @@ document.getElementById("langBtn").addEventListener("click", function () {
   });
 
   updateHabits();
+}
+
+langBtn.addEventListener("click", function() {
+  language = language === "en" ? "sw" : "en";
+  translatePage();
 });
 
-document.querySelectorAll(".read").forEach(function (button) {
-  button.addEventListener("click", function () {
+document.querySelectorAll(".read").forEach(function(button) {
+  button.addEventListener("click", function() {
     const details = document.getElementById(this.dataset.target);
     details.hidden = !details.hidden;
+
     this.textContent = language === "en"
       ? "Read More " + (details.hidden ? "+" : "−")
       : "Soma Zaidi " + (details.hidden ? "+" : "−");
@@ -298,43 +369,70 @@ document.querySelectorAll(".read").forEach(function (button) {
 function updateHabits() {
   const boxes = document.querySelectorAll(".habit");
   let count = 0;
-  boxes.forEach(box => { if (box.checked) count++; });
+
+  boxes.forEach(function(box) {
+    if (box.checked) count++;
+  });
+
   document.getElementById("habitCount").textContent =
     language === "en"
       ? count + " of " + boxes.length + " habits completed"
       : "Tabia " + count + " kati ya " + boxes.length + " zimetimizwa";
 }
 
-document.querySelectorAll(".habit").forEach(box => {
+document.querySelectorAll(".habit").forEach(function(box) {
   box.addEventListener("change", updateHabits);
 });
 
-document.getElementById("quizForm").addEventListener("submit", function (event) {
-  event.preventDefault();
+document.getElementById("resetHabits").addEventListener("click", function() {
+  document.querySelectorAll(".habit").forEach(function(box) {
+    box.checked = false;
+  });
+  updateHabits();
+});
 
-  const answers = {q1:"a", q2:"b", q3:"a", q4:"b", q5:"c"};
-  const explanations = {
-    en: [
-      "A treated mosquito net helps protect against mosquito bites.",
-      "Handwashing with soap helps remove germs.",
-      "A gradual start and warm-up can help reduce injury risk.",
-      "A variety of foods provides different nutrients.",
-      "Severe breathing difficulty needs urgent medical attention."
-    ],
-    sw: [
-      "Chandarua chenye dawa husaidia kujikinga na kuumwa na mbu.",
-      "Kunawa kwa sabuni husaidia kuondoa vijidudu.",
-      "Kuanza taratibu na kujipasha moto kunaweza kupunguza hatari ya majeraha.",
-      "Vyakula vya aina mbalimbali hutoa virutubisho tofauti.",
-      "Shida kali ya kupumua inahitaji huduma ya haraka."
-    ]
-  };
+const answers = {
+  q1: "a",
+  q2: "b",
+  q3: "a",
+  q4: "b",
+  q5: "c",
+  q6: "b",
+  q7: "c"
+};
+
+const explanations = {
+  en: [
+    "A treated mosquito net helps protect against mosquito bites.",
+    "Washing with soap helps remove germs.",
+    "Gradual exercise and warming up can help reduce injury risk.",
+    "A variety of foods provides different nutrients.",
+    "Severe breathing difficulty requires urgent medical attention.",
+    "Appropriate water treatment helps reduce waterborne disease risks.",
+    "Speaking to a trusted person or health professional can help."
+  ],
+  sw: [
+    "Chandarua chenye dawa husaidia kujikinga na kuumwa na mbu.",
+    "Kunawa kwa sabuni husaidia kuondoa vijidudu.",
+    "Kuanza mazoezi taratibu na kujipasha moto kunaweza kupunguza hatari ya majeraha.",
+    "Vyakula vya aina mbalimbali hutoa virutubisho tofauti.",
+    "Shida kali ya kupumua inahitaji huduma ya afya ya haraka.",
+    "Kusafisha maji kwa njia inayofaa husaidia kupunguza hatari ya magonjwa yanayoenezwa na maji.",
+    "Kuzungumza na mtu unayemwamini au mtaalamu wa afya kunaweza kusaidia."
+  ]
+};
+
+document.getElementById("quizForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
   let score = 0;
   let feedback = "<ol>";
 
-  Object.keys(answers).forEach(function (question, index) {
-    const selected = document.querySelector('input[name="' + question + '"]:checked');
+  Object.keys(answers).forEach(function(question, index) {
+    const selected = document.querySelector(
+      'input[name="' + question + '"]:checked'
+    );
+
     const correct = selected && selected.value === answers[question];
 
     if (correct) score++;
@@ -349,23 +447,36 @@ document.getElementById("quizForm").addEventListener("submit", function (event) 
 
   feedback += "</ol>";
 
-  const heading = language === "en"
-    ? "<h3>Your score: " + score + " / 5</h3>"
-    : "<h3>Alama zako: " + score + " / 5</h3>";
+  const total = Object.keys(answers).length;
+  const percentage = Math.round((score / total) * 100);
 
-  const message = language === "en"
-    ? (score === 5 ? "Excellent work!" : "Read the explanations and try again.")
-    : (score === 5 ? "Hongera sana!" : "Soma maelezo kisha ujaribu tena.");
+  const heading = language === "en"
+    ? "<h3>Your score: " + score + " / " + total + " (" + percentage + "%)</h3>"
+    : "<h3>Alama zako: " + score + " / " + total + " (" + percentage + "%)</h3>";
+
+  let message;
+
+  if (language === "en") {
+    message = score === total
+      ? "Excellent work! You answered every question correctly."
+      : "Review the explanations below and try again to improve your score.";
+  } else {
+    message = score === total
+      ? "Hongera sana! Umejibu maswali yote kwa usahihi."
+      : "Soma maelezo hapa chini kisha ujaribu tena kuboresha alama zako.";
+  }
 
   const result = document.getElementById("result");
   result.innerHTML = heading + "<p>" + message + "</p>" + feedback;
   result.hidden = false;
+  result.scrollIntoView({behavior: "smooth", block: "start"});
 });
 
-document.getElementById("quizForm").addEventListener("reset", function () {
-  setTimeout(function () {
-    document.getElementById("result").hidden = true;
-    document.getElementById("result").textContent = "";
+document.getElementById("quizForm").addEventListener("reset", function() {
+  setTimeout(function() {
+    const result = document.getElementById("result");
+    result.hidden = true;
+    result.textContent = "";
   }, 0);
 });
 
